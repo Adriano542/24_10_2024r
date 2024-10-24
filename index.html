@@ -1,18 +1,27 @@
+<!DOCTYPE html>
 <html>
-  <body>
-    <script>
-      document.write('Hello world!');
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Page Title</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+  <script src='main.js'></script>
+</head>
+<body>
+  <script>
+    document.write('Hello world!');
 
-      const number1 = parseInt (prompt('Wprowadź pierwszą liczbę: '));
-      const number2 = parseInt (prompt('Wprowadź drugą liczbę: '));
+    const number1 = parseInt (prompt('Wprowadź pierwszą liczbę: '));
+    const number2 = parseInt (prompt('Wprowadź drugą liczbę: '));
 
-      if (isNaN(number1)) {
-          document.write('Wpisz poprawnie pierwszą liczbę');
-      } else if (isNaN(number2)){
-        document.write('Wpisz poprawnie drugą liczbę');
-      } else {
-        document.write('<p> wynik: ' + (number1 + number2) + '</p>');
-      }
-    </script>
-  </body>
+    if (isNaN(number1)) {
+        document.write('Wpisz poprawnie pierwszą liczbę');
+    } else if (isNaN(number2)){
+      document.write('Wpisz poprawnie drugą liczbę');
+    } else {
+      document.write('<p> wynik: ' + (number1 + number2) + '</p>');
+    }
+  </script>
+</body>
 </html>
