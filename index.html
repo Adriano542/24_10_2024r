@@ -7,7 +7,11 @@
       const number2 = parseInt (prompt('Wprowadź drugą liczbę: '));
 
       if (isNaN(number1)) {
-        document.write('')
+          document.write('Wpisz poprawnie pierwszą liczbę');
+      } else if (isNaN(number2)){
+        document.write('Wpisz poprawnie drugą liczbę');
+      } else {
+        document.write('<p> wynik: ' + (number1 + number2) + '</p>');
       }
     </script>
   </body>
