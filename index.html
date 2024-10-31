@@ -1,4 +1,4 @@
-"<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset='utf-8'>
@@ -9,24 +9,31 @@
   <script src='main.js'></script>
 </head>
 <body>
-  <script>
+  <script>/
     document.write('Hello world!');
 
     const number1 = parseInt(prompt('Wprowadź pierwszą liczbę:'));
     const number2 = parseInt(prompt('Wprowadź drugą liczbę:'));
+    const znak = prompt('Wprowadź znak:');
 
     if (isNaN(number1)) {
         document.write('Wpisz poprawnie pierwszą liczbę');
     } else if (isNaN(number2)) {
       document.write('Wpisz poprawnie drugą liczbę');
-    } else {
-      document.write('<p> wynik: ' + (number1 + number2) + '</p>');
+    //} else {
+     // document.write('<p> wynik: ' + (number1 + number2) + '</p>');
+    //}
+    if znak == "-"{
+      return number1 - number2;
     }
+      else
   </script>
 </body>
 </html>"
 
 
+
+<!--
 <!DOCTYPE html>
 <html>
   <head>
@@ -59,4 +66,4 @@
       document.body.innerHTML += '<p> wynik: ' + (number1 + number2) + '</p>';
     </script>
   </body>
-</html>
+</html>-->
