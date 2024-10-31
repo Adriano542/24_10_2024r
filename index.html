@@ -10,52 +10,14 @@
 </head>
 <body>
   <script>
-/*
-    const number1 = parseInt(prompt('Wprowadź pierwszą liczbę:'));
-    const number2 = parseInt(prompt('Wprowadź drugą liczbę:'));
-    const znak = prompt('Wprowadź znak:');
-
-    while (isNaN(number1)) {
-      //number1 = parseInt(prompt('Wprowadź pierwszą liczbę:'));
-      if (isNaN(number1)) {
-        document.write('Wprowadź poprawną liczbę.<br>');
-      }
-    }
-
-    while (isNaN(number2)) {
-      //number2 = parseInt(prompt('Wprowadź drugą liczbę:'));
-      if (isNaN(number2)) {
-        document.write('Wprowadź poprawną liczbę.<br>');
-      }
-    }
-
-    if (operator === '+') {
-      result = number1 + number2;
-    } else if (operator === '-') {
-      result = number1 - number2;
-    } else if (operator === '*') {
-      result = number1 * number2;
-    } else if (operator === '/') {
-      if (number2 !== 0) {
-        result = number1 / number2;
-      } else {
-        document.write('Nie można dzielić przez zero.<br>');
-      }
-    }
-
-    if (result !== undefined) {
-      document.write('<p>Wynik: ' + result + '</p>');
-    }
- */
-
- 
+    
     // Deklaracja zmiennych za pomocą var
     var number1 = NaN;
     var number2 = NaN;
 
     // Pętla do uzyskania pierwszej liczby
     while (isNaN(number1)) {
-      number1 = parseInt(prompt('Wprowadź pierwszą liczbę:'));
+      number1 = parseFloat(prompt('Wprowadź pierwszą liczbę:'));
       if (isNaN(number1)) {
         document.write('Wprowadź poprawną liczbę.<br>');
       }
@@ -63,7 +25,7 @@
 
     // Pętla do uzyskania drugiej liczby
     while (isNaN(number2)) {
-      number2 = parseInt(prompt('Wprowadź drugą liczbę:'));
+      number2 = parseFloat(prompt('Wprowadź drugą liczbę:'));
       if (isNaN(number2)) {
         document.write('Wprowadź poprawną liczbę.<br>');
       }
@@ -98,7 +60,6 @@
     if (result !== undefined) {
       document.write('<p>Wynik: ' + result + '</p>');
     }
-    
   </script>
 </body>
 </html>
