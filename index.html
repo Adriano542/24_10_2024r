@@ -10,21 +10,20 @@
 </head>
 <body>
   <script>
-    document.write('Hello world!');
 
     const number1 = parseInt(prompt('Wprowadź pierwszą liczbę:'));
     const number2 = parseInt(prompt('Wprowadź drugą liczbę:'));
     const znak = prompt('Wprowadź znak:');
 
     while (isNaN(number1)) {
-      number1 = parseInt(prompt('Wprowadź pierwszą liczbę:'));
+      //number1 = parseInt(prompt('Wprowadź pierwszą liczbę:'));
       if (isNaN(number1)) {
         document.write('Wprowadź poprawną liczbę.<br>');
       }
     }
 
     while (isNaN(number2)) {
-      number2 = parseInt(prompt('Wprowadź drugą liczbę:'));
+      //number2 = parseInt(prompt('Wprowadź drugą liczbę:'));
       if (isNaN(number2)) {
         document.write('Wprowadź poprawną liczbę.<br>');
       }
@@ -43,6 +42,11 @@
         document.write('Nie można dzielić przez zero.<br>');
       }
     }
+
+    if (result !== undefined) {
+      document.write('<p>Wynik: ' + result + '</p>');
+    }
+    
   </script>
 </body>
 </html>
