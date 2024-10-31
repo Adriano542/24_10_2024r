@@ -10,7 +10,7 @@
 </head>
 <body>
   <script>
-
+/*
     const number1 = parseInt(prompt('Wprowadź pierwszą liczbę:'));
     const number2 = parseInt(prompt('Wprowadź drugą liczbę:'));
     const znak = prompt('Wprowadź znak:');
@@ -43,6 +43,58 @@
       }
     }
 
+    if (result !== undefined) {
+      document.write('<p>Wynik: ' + result + '</p>');
+    }
+ */
+
+ 
+    // Deklaracja zmiennych za pomocą var
+    var number1 = NaN;
+    var number2 = NaN;
+
+    // Pętla do uzyskania pierwszej liczby
+    while (isNaN(number1)) {
+      number1 = parseFloat(prompt('Wprowadź pierwszą liczbę:'));
+      if (isNaN(number1)) {
+        document.write('Wprowadź poprawną liczbę.<br>');
+      }
+    }
+
+    // Pętla do uzyskania drugiej liczby
+    while (isNaN(number2)) {
+      number2 = parseFloat(prompt('Wprowadź drugą liczbę:'));
+      if (isNaN(number2)) {
+        document.write('Wprowadź poprawną liczbę.<br>');
+      }
+    }
+
+    // Pętla do uzyskania operatora
+    var operator;
+    while (operator !== '+' && operator !== '-' && operator !== '*' && operator !== '/') {
+      operator = prompt('Wybierz operator (+, -, *, /):');
+      if (operator !== '+' && operator !== '-' && operator !== '*' && operator !== '/') {
+        document.write('Wprowadź poprawny operator.<br>');
+      }
+    }
+
+    // Obliczanie wyniku
+    var result;
+    if (operator === '+') {
+      result = number1 + number2;
+    } else if (operator === '-') {
+      result = number1 - number2;
+    } else if (operator === '*') {
+      result = number1 * number2;
+    } else if (operator === '/') {
+      if (number2 !== 0) {
+        result = number1 / number2;
+      } else {
+        document.write('Nie można dzielić przez zero.<br>');
+      }
+    }
+
+    // Wyświetlanie wyniku
     if (result !== undefined) {
       document.write('<p>Wynik: ' + result + '</p>');
     }
