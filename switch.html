@@ -1,26 +1,52 @@
 <html>
   <head>
     <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Tło strony */
       body {
         font-family: Arial, sans-serif;
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
-        background-color: #f0f0f0;
-        margin: 0;
+        background: linear-gradient(135deg, #a8edea, #fed6e3);
+        color: #333;
       }
 
-      h1 {
-        color: #333;
+      /* Pojemnik na treść */
+      .container {
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         text-align: center;
+        max-width: 400px;
+        width: 100%;
+      }
+
+      /* Nagłówek */
+      h1 {
+        color: #555;
+        font-size: 2em;
         margin-bottom: 20px;
       }
 
-      .message {
-        color: #555;
+      /* Styl wiadomości */
+      .message p {
         font-size: 1.2em;
-        text-align: center;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      /* Styl komunikatów ostrzegawczych */
+      .warning {
+        color: #d9534f;
+        font-weight: bold;
       }
     </style>
   </head>
