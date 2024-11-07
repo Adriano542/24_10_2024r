@@ -1,85 +1,37 @@
 <html>
   <head>
-    <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-
-      /* Tło strony */
-      body {
-        font-family: Arial, sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background: linear-gradient(135deg, #a8edea, #fed6e3);
-        color: #333;
-      }
-
-      /* Pojemnik na treść */
-      .container {
-        background-color: #fff;
-        padding: 40px;
-        border-radius: 10px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        text-align: center;
-        max-width: 400px;
-        width: 100%;
-      }
-
-      /* Nagłówek */
-      h1 {
-        color: #555;
-        font-size: 2em;
-        margin-bottom: 20px;
-      }
-
-      /* Styl wiadomości */
-      .message p {
-        font-size: 1.2em;
-        color: #333;
-        margin-bottom: 10px;
-      }
-
-      /* Styl komunikatów ostrzegawczych */
-      .warning {
-        color: #d9534f;
-        font-weight: bold;
-      }
-    </style>
+    <title>Przelicznik</title>
   </head>
   <body>
     <h1>Konwerter jednostek</h1>
-      <script>
-        var number = NaN;
-
-        while (isNaN(number)) {
-          number = parseInt(prompt('Wprowadź liczbę:'));
-          if (isNaN(number)) {
-            document.write('Wprowadź poprawną liczbę.');
-          }
+    <script>
+      var number = NaN;
+      
+      while (isNaN(number)) {
+        number = parseInt(prompt('Wprowadź liczbę:'));
+        if (isNaN(number)) {
+          document.write('Wprowadź poprawną liczbę.<br>');
         }
+      }
 
-        var jednostka = prompt('Wprowadź jednostkę (km lub mile):');
+      var jednostka = prompt('Wprowadź jednostkę (km lub mile):');
 
-        if (jednostka != "km" && jednostka != "mile") {
-          document.write('<p>Nie znam jednostki ' + jednostka + ', podaj km lub mile.</p>');
-        } else {
-          var wynik;
-          switch (jednostka) {
-            case "km":
-              wynik = number * 0.62137119;
-              document.write('<p>' + number + ' km to ' + wynik.toFixed(2) + ' mil.</p>');
-              break;
+      if (jednostka != "km" && jednostka != "mile") {
+        document.write('Nie znam jednostki' + jednostka ', podaj km lub mile.');
+      } else {
+        var wynik;
+        switch (jednostka) {
+          case "km":
+            wynik = number * 0.62137119;
+            document.write(number + ' km to ' + wynik + ' mil.<br>');
+            break;
 
-            case "mile":
-              wynik = number * 1.609344;
-              document.write('<p>' + number + ' mil to ' + wynik.toFixed(2) + ' km.</p>');
-              break;
-          }
+          case "mile":
+            wynik = number * 1.609344;
+            document.write(number + ' mil to ' + wynik + ' km.<br>');
+            break;
         }
-      </script>
+      }
+    </script>
   </body>
 </html>
