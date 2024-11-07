@@ -1,7 +1,40 @@
 <html>
-  <body>siema siema
+  <body>
+    <h1>Konwerter jednostek</h1>
     <script>
+      var number = NaN;
       
+
+      while (isNaN(number)) {
+      number = parseInt(prompt('Wprowadź pierwszą liczbę:'));
+      if (isNaN(number)) {
+        document.write('Wprowadź poprawną liczbę.<br>');
+      }
+    }
+    
+    var jednostka = (prompt('Wprowadź jednostkę (km lub mile):'));
+    if jednostka != "km" || "mile"{
+      document.write('Nie znam tej jednostki, podaj km lub mile');
+    }
+
+      
+
+    switch (key) {
+      case "km":
+        return wynik1 = number * 0,62137119;
+        print(wynik1);
+        break;
+
+        case "mile":
+          return wynik2 = number * 1,609344;
+          print(wynik2)
+        
+        break;
+    
+      default:
+        break;
+    }
     </script>
+
   </body>
 </html>
