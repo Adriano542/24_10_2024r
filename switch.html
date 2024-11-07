@@ -1,7 +1,4 @@
 <html>
-  <head>
-    <title>Przelicznik</title>
-  </head>
   <body>
     <h1>Konwerter jednostek</h1>
     <script>
@@ -17,7 +14,7 @@
       var jednostka = prompt('Wprowadź jednostkę (km lub mile):');
 
       if (jednostka != "km" && jednostka != "mile") {
-        document.write('Nie znam jednostki' + jednostka ', podaj km lub mile.');
+        document.write('Nie znam jednostki' + jednostka ', podaj km lub mile.<br>');
       } else {
         var wynik;
         switch (jednostka) {
