@@ -9,26 +9,14 @@
             font-family: Arial, sans-serif;
             padding: 20px;
         }
-        button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
     </style>
 </head>
 <body>
 
     <h1>Przekonwertuj Słowo i Literę</h1>
-    
-    <button onclick="processData()">Przetwórz</button>
 
     <script>
+        // Funkcja, która wykonuje całą logikę
         function processData() {
             // Wyświetlamy okno prompt, żeby użytkownik wpisał słowo
             const word = prompt("Wpisz słowo:");
@@ -70,6 +58,10 @@
             // Wyświetlamy wynik w oknie alert
             alert(resultText);
         }
+
+        // Wywołujemy funkcję zaraz po załadowaniu strony
+        window.onload = processData;
     </script>
+
 </body>
 </html>
