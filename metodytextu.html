@@ -1,49 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Znajdź Indeksy Litery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            margin: 5px 0;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
+    <h1>Znajdź Indeksy Litery</h1>
+    <label for="inputString">Wprowadź ciąg znaków:</label><br>
+    <input type="text" id="inputString"><br>
+
+    <label for="inputLetter">Wprowadź literę:</label><br>
+    <input type="text" id="inputLetter" maxlength="1"><br>
+
+    <button onclick="findIndexes()">Znajdź Indeksy</button>
+
+    <div class="result" id="result"></div>
+
     <script>
-        // Original string
-        let str = "ubcubedcbgyfexbvccmnbaqu";
+        function findIndexes() {
+            const inputString = document.getElementById('inputString').value;
+            const inputLetter = document.getElementById('inputLetter').value;
+            const resultDiv = document.getElementById('result');
 
-        // String length
-        document.write("Length of the string: " + str.length) ; document.write("<br>");
+            if (inputLetter.length !== 1) {
+                resultDiv.textContent = 'Proszę wprowadzić dokładnie jedną literę.';
+                return;
+            }
 
-        document.write("Length of the string: " + str.charAt(1)) ; document.write("<br>");
+            let indexes = [];
+            for (let i = 0; i < inputString.length; i++) {
+                if (inputString[i] === inputLetter) {
+                    indexes.push(i);
+                }
+            }
 
-        // Convert to uppercase 
-        document.write("Uppercase: " + str.toUpperCase()) ; document.write("<br>");  
-
-        // Convert to lowercase
-        document.write("Lowercase: " + str.toLowerCase()) ; document.write("<br>");
-
-        // Find the index of a substring
-        document.write("Index of 'World': " + str.indexOf("World")) ; document.write("<br>");
-
-        // Extract a substring
-        document.write("Substring (7, 12): " + str.substring(7, 12)) ; document.write("<br>");
-
-        // Replace a substring
-        document.write("Replace 'World' with 'JavaScript': " + str.replace("World", "JavaScript")) ; document.write("<br>");
-
-        // Check if the string contains a substring
-        document.write("Contains 'Hello': " + str.includes("Hello")) ; document.write("<br>");
-
-        // Split the string into an array
-        document.write("Split by ', ': " + str.split(", ")) ; document.write("<br>");
-
-        // Trim whitespace from the string
-        let strWithWhitespace = "   Extra spaces   " ; document.write("<br>");
-        document.write("Trimmed string: '" + strWithWhitespace.trim() + "'") ; document.write("<br>");
-
-
+            resultDiv.textContent = indexes.length > 0 ? 
+                `Litera '${inputLetter}' znajduje się na indeksach: ${indexes.join(', ')}.` : 
+                `Litera '${inputLetter}' nie została znaleziona w ciągu znaków.`;
+        }
     </script>
 </body>
 </html>
