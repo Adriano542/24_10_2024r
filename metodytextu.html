@@ -3,14 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Znajdź Indeksy Litery</title>
+    <title>Konwerter Słowa</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .container {
             margin: 20px;
         }
         input {
-            margin: 5px 0;
+            padding: 8px;
+            margin: 10px 0;
+            font-size: 16px;
+            width: 100%;
+            max-width: 300px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
         }
         .result {
             margin-top: 20px;
@@ -18,38 +36,58 @@
     </style>
 </head>
 <body>
-    <h1>Znajdź Indeksy Litery</h1>
-    <label for="inputString">Wprowadź ciąg znaków:</label><br>
-    <input type="text" id="inputString"><br>
 
-    <label for="inputLetter">Wprowadź literę:</label><br>
-    <input type="text" id="inputLetter" maxlength="1"><br>
+    <h1>Przekonwertuj Słowo i Literę</h1>
+    
+    <div class="container">
+        <label for="word">Wpisz słowo:</label>
+        <input type="text" id="word" placeholder="Wpisz słowo" />
+    </div>
+    
+    <div class="container">
+        <label for="letter">Wpisz literę:</label>
+        <input type="text" id="letter" maxlength="1" placeholder="Wpisz literę" />
+    </div>
 
-    <button onclick="findIndexes()">Znajdź Indeksy</button>
+    <button onclick="processData()">Przetwórz</button>
 
     <div class="result" id="result"></div>
 
     <script>
-        function findIndexes() {
-            const inputString = document.getElementById('inputString').value;
-            const inputLetter = document.getElementById('inputLetter').value;
-            const resultDiv = document.getElementById('result');
+        function processData() {
+            // Pobieramy dane z formularza
+            const word = document.getElementById('word').value;
+            const letter = document.getElementById('letter').value;
 
-            if (inputLetter.length !== 1) {
-                resultDiv.textContent = 'Proszę wprowadzić dokładnie jedną literę.';
+            // Sprawdzamy, czy oba pola są wypełnione
+            if (word === '' || letter === '') {
+                alert('Proszę wprowadzić zarówno słowo, jak i literę!');
                 return;
             }
 
-            let indexes = [];
-            for (let i = 0; i < inputString.length; i++) {
-                if (inputString[i] === inputLetter) {
-                    indexes.push(i);
+            // Konwertujemy słowo do stringa
+            const wordString = String(word);
+            
+            // Sprawdzamy długość słowa
+            const wordLength = wordString.length;
+
+            // Szukamy indeksów, na których znajduje się litera
+            let indices = [];
+            for (let i = 0; i < wordString.length; i++) {
+                if (wordString[i] === letter) {
+                    indices.push(i);
                 }
             }
 
-            resultDiv.textContent = indexes.length > 0 ? 
-                `Litera '${inputLetter}' znajduje się na indeksach: ${indexes.join(', ')}.` : 
-                `Litera '${inputLetter}' nie została znaleziona w ciągu znaków.`;
+            // Tworzymy wynik do wyświetlenia
+            let resultHtml = `
+                <p><strong>Długość słowa:</strong> ${wordLength}</p>
+                <p><strong>Wpisane słowo:</strong> ${wordString}</p>
+                <p><strong>Indeksy wystąpień litery "${letter}":</strong> ${indices.length > 0 ? indices.join(', ') : 'Brak wystąpień tej litery'}</p>
+            `;
+
+            // Wyświetlamy wynik
+            document.getElementById('result').innerHTML = resultHtml;
         }
     </script>
 </body>
