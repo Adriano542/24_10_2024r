@@ -3,65 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Konwerter Słowa</title>
+    <title>Indeksy Litery</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            padding: 20px;
+            margin: 20px;
+        }
+        input {
+            padding: 5px;
+            margin: 10px 0;
+        }
+        button {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <h1>Przekonwertuj Słowo i Literę</h1>
+<h1>Znajdź Indeksy Litery w Słowie</h1>
 
-    <script>
-        // Funkcja, która wykonuje całą logikę
-        function processData() {
-            // Wyświetlamy okno prompt, żeby użytkownik wpisał słowo
-            const word = prompt("Wpisz słowo:");
+<label for="word">Wpisz słowo:</label>
+<input type="text" id="word" placeholder="Wpisz słowo" required>
+<br>
 
-            // Sprawdzamy, czy użytkownik wprowadził coś
-            if (word === null || word === '') {
-                alert('Proszę wprowadzić słowo!');
-                return;
-            }
+<label for="letter">Wpisz literę:</label>
+<input type="text" id="letter" maxlength="1" placeholder="Wpisz literę" required>
+<br>
 
-            // Wyświetlamy okno prompt, żeby użytkownik wpisał literę
-            const letter = prompt("Wpisz literę:");
+<button onclick="processData()">Pokaż wyniki</button>
 
-            // Sprawdzamy, czy użytkownik wprowadził literę
-            if (letter === null || letter === '' || letter.length !== 1) {
-                alert('Proszę wprowadzić tylko jedną literę!');
-                return;
-            }
+<div class="result">
+    <p><strong>Słowo:</strong> <span id="displayWord"></span></p>
+    <p><strong>Ilość znaków w słowie:</strong> <span id="charCount"></span></p>
+    <p><strong>Indeksy litery:</strong> <span id="letterIndexes"></span></p>
+</div>
 
-            // Konwertujemy słowo do stringa
-            const wordString = String(word);
+<script>
+    function processData() {
+        // Pobieranie wartości z pól tekstowych
+        const word = document.getElementById('word').value;
+        const letter = document.getElementById('letter').value;
 
-            // Sprawdzamy długość słowa
-            const wordLength = wordString.length;
+        // Sprawdzenie czy użytkownik wpisał zarówno słowo jak i literę
+        if (word && letter && letter.length === 1) {
+            // Obliczanie ilości znaków w słowie
+            const charCount = word.length;
 
-            // Szukamy indeksów, na których znajduje się litera
-            let indices = [];
-            for (let i = 0; i < wordString.length; i++) {
-                if (wordString[i] === letter) {
-                    indices.push(i);
+            // Szukanie indeksów, na których występuje litera
+            let indexes = [];
+            for (let i = 0; i < word.length; i++) {
+                if (word[i] === letter) {
+                    indexes.push(i);
                 }
             }
 
-            // Tworzymy wynik do wyświetlenia
-            let resultText = `Długość słowa: ${wordLength}\n`;
-            resultText += `Wpisane słowo: ${wordString}\n`;
-            resultText += `Indeksy wystąpień litery "${letter}": ${indices.length > 0 ? indices.join(', ') : 'Brak wystąpień tej litery'}`;
-
-            // Wyświetlamy wynik w oknie alert
-            alert(resultText);
+            // Wyświetlanie wyników na stronie
+            document.getElementById('displayWord').textContent = word;
+            document.getElementById('charCount').textContent = charCount;
+            document.getElementById('letterIndexes').textContent = indexes.length > 0 ? indexes.join(', ') : 'Brak takiej litery w słowie';
+        } else {
+            alert("Proszę wpisać zarówno słowo, jak i literę!");
         }
-
-        // Wywołujemy funkcję zaraz po załadowaniu strony
-        window.onload = processData;
-    </script>
+    }
+</script>
 
 </body>
 </html>
