@@ -9,10 +9,6 @@
             font-family: Arial, sans-serif;
             margin: 20px;
         }
-        input {
-            padding: 5px;
-            margin: 10px 0;
-        }
         button {
             padding: 5px 10px;
             background-color: #4CAF50;
@@ -32,16 +28,6 @@
 
 <h1>Znajdź Indeksy Litery w Zdaniu</h1>
 
-<label for="sentence">Wpisz zdanie:</label>
-<input type="text" id="sentence" placeholder="Wpisz zdanie" required>
-<br>
-
-<label for="letter">Wpisz literę:</label>
-<input type="text" id="letter" maxlength="1" placeholder="Wpisz literę" required>
-<br>
-
-<button onclick="processData()">Pokaż wyniki</button>
-
 <div class="result">
     <p><strong>Zdanie:</strong> <span id="displaySentence"></span></p>
     <p><strong>Ilość znaków w zdaniu:</strong> <span id="charCount"></span></p>
@@ -49,12 +35,15 @@
 </div>
 
 <script>
-    function processData() {
-        // Pobieranie wartości z pól tekstowych
-        const sentence = document.getElementById('sentence').value;
-        const letter = document.getElementById('letter').value;
+    // Funkcja uruchamiająca od razu po załadowaniu strony
+    window.onload = function() {
+        // Pokazanie okienka prompt dla użytkownika, by wpisał zdanie
+        const sentence = prompt("Wpisz zdanie:");
+        
+        // Pokazanie okienka prompt dla użytkownika, by wpisał literę
+        const letter = prompt("Wpisz literę:");
 
-        // Sprawdzenie, czy użytkownik wpisał zarówno zdanie jak i literę
+        // Sprawdzamy, czy użytkownik wpisał poprawne dane
         if (sentence && letter && letter.length === 1) {
             // Obliczanie ilości znaków w zdaniu
             const charCount = sentence.length;
