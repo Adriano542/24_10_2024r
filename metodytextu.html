@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indeksy Litery</title>
+    <title>Indeksy Litery w Zdaniu</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -30,10 +30,10 @@
 </head>
 <body>
 
-<h1>Znajdź Indeksy Litery w Słowie</h1>
+<h1>Znajdź Indeksy Litery w Zdaniu</h1>
 
-<label for="word">Wpisz słowo:</label>
-<input type="text" id="word" placeholder="Wpisz słowo" required>
+<label for="sentence">Wpisz zdanie:</label>
+<input type="text" id="sentence" placeholder="Wpisz zdanie" required>
 <br>
 
 <label for="letter">Wpisz literę:</label>
@@ -43,36 +43,36 @@
 <button onclick="processData()">Pokaż wyniki</button>
 
 <div class="result">
-    <p><strong>Słowo:</strong> <span id="displayWord"></span></p>
-    <p><strong>Ilość znaków w słowie:</strong> <span id="charCount"></span></p>
+    <p><strong>Zdanie:</strong> <span id="displaySentence"></span></p>
+    <p><strong>Ilość znaków w zdaniu:</strong> <span id="charCount"></span></p>
     <p><strong>Indeksy litery:</strong> <span id="letterIndexes"></span></p>
 </div>
 
 <script>
     function processData() {
         // Pobieranie wartości z pól tekstowych
-        const word = document.getElementById('word').value;
+        const sentence = document.getElementById('sentence').value;
         const letter = document.getElementById('letter').value;
 
-        // Sprawdzenie czy użytkownik wpisał zarówno słowo jak i literę
-        if (word && letter && letter.length === 1) {
-            // Obliczanie ilości znaków w słowie
-            const charCount = word.length;
+        // Sprawdzenie, czy użytkownik wpisał zarówno zdanie jak i literę
+        if (sentence && letter && letter.length === 1) {
+            // Obliczanie ilości znaków w zdaniu
+            const charCount = sentence.length;
 
             // Szukanie indeksów, na których występuje litera
             let indexes = [];
-            for (let i = 0; i < word.length; i++) {
-                if (word[i] === letter) {
+            for (let i = 0; i < sentence.length; i++) {
+                if (sentence[i] === letter) {
                     indexes.push(i);
                 }
             }
 
             // Wyświetlanie wyników na stronie
-            document.getElementById('displayWord').textContent = word;
+            document.getElementById('displaySentence').textContent = sentence;
             document.getElementById('charCount').textContent = charCount;
-            document.getElementById('letterIndexes').textContent = indexes.length > 0 ? indexes.join(', ') : 'Brak takiej litery w słowie';
+            document.getElementById('letterIndexes').textContent = indexes.length > 0 ? indexes.join(', ') : 'Brak takiej litery w zdaniu';
         } else {
-            alert("Proszę wpisać zarówno słowo, jak i literę!");
+            alert("Proszę wpisać zarówno zdanie, jak i literę!");
         }
     }
 </script>
