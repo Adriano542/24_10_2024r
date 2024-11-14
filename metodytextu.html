@@ -10,13 +10,40 @@
 </head>
 <body>
     <script>
-        const str1 = "Hello";
-        const str2 = "World";
-        console.log(str1.concat(" ", str2)); // "Hello World"
+        // Original string
+        let str = "hUj";
+
+        // String length
+        document.write("Length of the string: " + str.length) ; document.write("<br>");
+
+        document.write("Length of the string: " + str.charAt(1)) ; document.write("<br>");
+
+        // Convert to uppercase 
+        document.write("Uppercase: " + str.toUpperCase()) ; document.write("<br>");  
+
+        // Convert to lowercase
+        document.write("Lowercase: " + str.toLowerCase()) ; document.write("<br>");
+
+        // Find the index of a substring
+        document.write("Index of 'World': " + str.indexOf("World")) ; document.write("<br>");
+
+        // Extract a substring
+        document.write("Substring (7, 12): " + str.substring(7, 12)) ; document.write("<br>");
+
+        // Replace a substring
+        document.write("Replace 'World' with 'JavaScript': " + str.replace("World", "JavaScript")) ; document.write("<br>");
+
+        // Check if the string contains a substring
+        document.write("Contains 'Hello': " + str.includes("Hello")) ; document.write("<br>");
+
+        // Split the string into an array
+        document.write("Split by ', ': " + str.split(", ")) ; document.write("<br>");
+
+        // Trim whitespace from the string
+        let strWithWhitespace = "   Extra spaces   " ; document.write("<br>");
+        document.write("Trimmed string: '" + strWithWhitespace.trim() + "'") ; document.write("<br>");
 
 
-        const str = "Hello World"; 
-        console.log(str.includes("World"));
     </script>
 </body>
 </html>
