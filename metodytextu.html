@@ -9,16 +9,6 @@
             font-family: Arial, sans-serif;
             padding: 20px;
         }
-        .container {
-            margin: 20px;
-        }
-        input {
-            padding: 8px;
-            margin: 10px 0;
-            font-size: 16px;
-            width: 100%;
-            max-width: 300px;
-        }
         button {
             padding: 10px 20px;
             background-color: #4CAF50;
@@ -30,44 +20,37 @@
         button:hover {
             background-color: #45a049;
         }
-        .result {
-            margin-top: 20px;
-        }
     </style>
 </head>
 <body>
 
     <h1>Przekonwertuj Słowo i Literę</h1>
     
-    <div class="container">
-        <label for="word">Wpisz słowo:</label>
-        <input type="text" id="word" placeholder="Wpisz słowo" />
-    </div>
-    
-    <div class="container">
-        <label for="letter">Wpisz literę:</label>
-        <input type="text" id="letter" maxlength="1" placeholder="Wpisz literę" />
-    </div>
-
     <button onclick="processData()">Przetwórz</button>
-
-    <div class="result" id="result"></div>
 
     <script>
         function processData() {
-            // Pobieramy dane z formularza
-            const word = document.getElementById('word').value;
-            const letter = document.getElementById('letter').value;
+            // Wyświetlamy okno prompt, żeby użytkownik wpisał słowo
+            const word = prompt("Wpisz słowo:");
 
-            // Sprawdzamy, czy oba pola są wypełnione
-            if (word === '' || letter === '') {
-                alert('Proszę wprowadzić zarówno słowo, jak i literę!');
+            // Sprawdzamy, czy użytkownik wprowadził coś
+            if (word === null || word === '') {
+                alert('Proszę wprowadzić słowo!');
+                return;
+            }
+
+            // Wyświetlamy okno prompt, żeby użytkownik wpisał literę
+            const letter = prompt("Wpisz literę:");
+
+            // Sprawdzamy, czy użytkownik wprowadził literę
+            if (letter === null || letter === '' || letter.length !== 1) {
+                alert('Proszę wprowadzić tylko jedną literę!');
                 return;
             }
 
             // Konwertujemy słowo do stringa
             const wordString = String(word);
-            
+
             // Sprawdzamy długość słowa
             const wordLength = wordString.length;
 
@@ -80,14 +63,12 @@
             }
 
             // Tworzymy wynik do wyświetlenia
-            let resultHtml = `
-                <p><strong>Długość słowa:</strong> ${wordLength}</p>
-                <p><strong>Wpisane słowo:</strong> ${wordString}</p>
-                <p><strong>Indeksy wystąpień litery "${letter}":</strong> ${indices.length > 0 ? indices.join(', ') : 'Brak wystąpień tej litery'}</p>
-            `;
+            let resultText = `Długość słowa: ${wordLength}\n`;
+            resultText += `Wpisane słowo: ${wordString}\n`;
+            resultText += `Indeksy wystąpień litery "${letter}": ${indices.length > 0 ? indices.join(', ') : 'Brak wystąpień tej litery'}`;
 
-            // Wyświetlamy wynik
-            document.getElementById('result').innerHTML = resultHtml;
+            // Wyświetlamy wynik w oknie alert
+            alert(resultText);
         }
     </script>
 </body>
